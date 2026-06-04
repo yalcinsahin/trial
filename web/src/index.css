@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ──────────────────────────────────────────────── */
+:root {
+  /* Brand Colors */
+  --color-sea-salt-100: #e8ede8;
+  --color-sea-salt-200: #d4dfd4;
+  --color-sea-salt-300: #c2d0c2;
+  --color-terra-cotta: #c4623a;
+  --color-terra-cotta-light: #d4764e;
+  --color-terra-cotta-dark: #b85530;
+  --color-black: #161210;
+  --color-black-light: #1e1a18;
+  --color-warm-white: #fdfcfa;
+  --color-warm-white-100: #f8f5f0;
+
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-ui: 'Josefin Sans', sans-serif;
+
+  /* Spacing */
+  --section-padding: 6rem 0;
+  --container-max: 1280px;
+  --container-padding: 0 1.5rem;
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-warm-white text-brand-black font-cormorant text-lg;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cinzel text-brand-black;
+    font-feature-settings: 'kern' 1;
+  }
+
+  p {
+    @apply font-cormorant leading-relaxed;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-terra-cotta-500 ring-offset-2 ring-offset-warm-white;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-terra-cotta-500 text-warm-white;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-warm-white-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-sea-salt-300;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-terra-cotta-500;
+  }
+}
+
+/* ─── Component Utilities ────────────────────────────────────────────────── */
+@layer components {
+  /* Container */
+  .container-luxury {
+    @apply max-w-screen-xl mx-auto px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-20 lg:py-28;
+  }
+
+  /* Headings */
+  .heading-display {
+    @apply font-cinzel text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-section {
+    @apply font-cinzel text-3xl md:text-4xl font-semibold leading-tight;
+    letter-spacing: -0.01em;
+  }
+
+  .heading-card {
+    @apply font-cinzel text-xl font-medium;
+    letter-spacing: 0.01em;
+  }
+
+  /* Body text */
+  .body-lg {
+    @apply font-cormorant text-xl leading-relaxed;
+  }
+
+  .body-md {
+    @apply font-cormorant text-lg leading-relaxed;
+  }
+
+  .body-sm {
+    @apply font-cormorant text-base leading-relaxed;
+  }
+
+  /* UI text */
+  .ui-text {
+    @apply font-josefin text-sm tracking-wide uppercase;
+  }
+
+  .ui-text-sm {
+    @apply font-josefin text-xs tracking-widest uppercase;
+  }
+
+  /* Divider */
+  .divider-luxury {
+    @apply border-sea-salt-200;
+  }
+
+  /* Terra cotta line accent */
+  .accent-line {
+    @apply w-12 h-0.5 bg-terra-cotta-500;
+  }
+
+  /* Card */
+  .card-luxury {
+    @apply bg-warm-white border border-sea-salt-200 shadow-card hover:shadow-card-hover transition-shadow duration-300;
+  }
+
+  /* Glass overlay */
+  .glass-dark {
+    background: rgba(22, 18, 16, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* ─── Utilities ───────────────────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .letter-wide {
+    letter-spacing: 0.1em;
+  }
+
+  .letter-wider {
+    letter-spacing: 0.15em;
+  }
+
+  .letter-widest {
+    letter-spacing: 0.2em;
+  }
+
+  /* Gradient text */
+  .gradient-text-terra {
+    @apply bg-gradient-terra bg-clip-text text-transparent;
+  }
+}
+
+/* ─── Page Transitions ───────────────────────────────────────────────────── */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/* ─── Custom Form Styles ─────────────────────────────────────────────────── */
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'] {
+  @apply font-josefin text-sm;
+  color-scheme: light;
+}
+
+/* Remove number input arrows */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
+}
