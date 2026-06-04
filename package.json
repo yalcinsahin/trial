@@ -1,0 +1,22 @@
+{
+  "name": "bookairportride",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Luxury black car airport transportation platform",
+  "workspaces": [
+    "web",
+    "mobile",
+    "supabase"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=web",
+    "build": "npm run build --workspace=web",
+    "preview": "npm run preview --workspace=web",
+    "lint": "npm run lint --workspace=web",
+    "type-check": "npm run type-check --workspace=web"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
